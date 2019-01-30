@@ -1,29 +1,36 @@
 import pandas
 import pycountry
+import chardet
 
 
-def convert_state_to_country(state_name):
-    try:
-        state = pycountry.subdivisions.lookup(state_name)
-    except LookupError:
-        return 'XXX'
-    country = pycountry.countries.get(alpha_2=state.country_code)
-    return country.alpha_3
+class CsvReportProcesser():
+
+    def convert_state_to_country(state_name):
+        try:
+            state = pycountry.subdivisions.lookup(state_name)
+        except LookupError:
+            return 'XXX'
+
+        country = pycountry.countries.get(alpha_2=state.country_code)
+        return country.alpha_3
+
+    def csv_report_processing():
+        names = ('date', 'country_code', 'impressions', 'clicks')
+
+        converters = {
+            'date': pandas.to_datetime,
+            'country_code': CsvReportProcesser.convert_state_to_country,
+        }
+
+        try:
+            df = pandas.read_csv('example_input_utf_16.csv', names=names, converters=converters)
+        except UnicodeDecodeError:
+            df = pandas.read_csv('example_input_utf_16.csv', names=names, converters=converters, encoding='utf-16')
+
+        df['clicks'] = round(df.impressions * df.clicks.str.rstrip('%').astype('float') / 100).astype(int)
+
+        df.groupby(['date', 'country_code'], as_index=False).sum().to_csv('output.csv', index=False,
+                                                                          header=False)
 
 
-print('wynik', convert_state_to_country('dupasad8'))
-
-
-def csv_report_processing():
-    names = ['Date', 'Country', 'Number of impressions', 'CTR percentage']
-
-    converters = {
-        'Date': pandas.to_datetime,
-        'Country': convert_state_to_country,
-    }
-
-    input_report = pandas.read_csv('example_input_utf_8.csv', names=names, converters=converters)
-    print(input_report)
-
-
-csv_report_processing()
+CsvReportProcesser.csv_report_processing()
