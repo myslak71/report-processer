@@ -1,0 +1,10 @@
+language: python
+sudo: required
+dist: xenial
+python: "3.7"
+cache: pip
+install:
+  - pip install -r requirements.txt
+script:
+  - coverage run --source=test
+after_success: coveralls
