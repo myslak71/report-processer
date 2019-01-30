@@ -1,6 +1,6 @@
 import os
 
-import pandas
+import pandas as pd
 import pycountry
 
 
@@ -24,10 +24,10 @@ class CsvReportProcesser():
     @staticmethod
     def __open_depending_on_encoding(input_path, columns, converters):
         try:
-            df = pandas.read_csv(input_path, names=columns, converters=converters, index_col=False,
+            df = pd.read_csv(input_path, names=columns, converters=converters, index_col=False,
                                  keep_default_na=False)
         except UnicodeDecodeError:
-            df = pandas.read_csv(input_path, names=columns, converters=converters, index_col=False,
+            df = pd.read_csv(input_path, names=columns, converters=converters, index_col=False,
                                  keep_default_na=False, encoding='utf-16')
         return df
 
@@ -36,7 +36,7 @@ class CsvReportProcesser():
         columns = ('date', 'country_code', 'impressions', 'clicks')
 
         converters = {
-            'date': pandas.to_datetime,
+            'date': pd.to_datetime,
             'country_code': CsvReportProcesser.__convert_state_to_country,
         }
 
@@ -54,10 +54,14 @@ class CsvReportProcesser():
         except ValueError as e:
             return f'Invalid number of impressions or CTR percentage data\n{str(e).capitalize()}'
 
-        df.groupby(['date', 'country_code'], as_index=False).sum().to_csv(output_path, index=False,
-                                                                          header=False, )
+        df.groupby(['date', 'country_code'], as_index=False).sum().to_csv(output_path,
+                                                                          index=False,
+                                                                          header=False,
+                                                                          line_terminator='\n')
 
-        return "CSV file has been created"
+        return f"CSV file has been created at {output_path}"
+
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 print(CsvReportProcesser.csv_report_processing(BASE_DIR + '/test.csv',
                                                BASE_DIR + '/output_test.csv'))
