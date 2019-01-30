@@ -57,7 +57,7 @@ class CsvReportProcesser():
         df.groupby(['date', 'country_code'], as_index=False).sum().to_csv(output_path, index=False,
                                                                           header=False, )
 
-
+        return "CSV file has been created"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 print(CsvReportProcesser.csv_report_processing(BASE_DIR + '/test.csv',
                                                BASE_DIR + '/output_test.csv'))
