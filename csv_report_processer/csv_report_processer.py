@@ -25,13 +25,6 @@ class CsvReportProcesser():
         return df
 
     @staticmethod
-    def convert_date(date):
-        try:
-            return pd.to_datetime(date)
-        except Exception:
-            return date
-
-    @staticmethod
     def convert_data(df):
         df['country_code'] = df['country_code'].map(lambda x: CsvReportProcesser.__convert_state_to_country(x))
 
@@ -52,11 +45,11 @@ class CsvReportProcesser():
                 df.at[row.Index, 'warning'] = 1
 
     @staticmethod
-    def csv_report_processing2(input_path, output_path):
+    def csv_report_processing(input_path, output_path):
         columns = ('date', 'country_code', 'impressions', 'clicks')
         try:
             df = CsvReportProcesser.__open_depending_on_encoding(input_path, columns)
-        except UnicodeDecodeError:
+        except UnicodeError:
             print('Invalid file encoding - supported encodings: UTF-8, UTF-16')
         except FileNotFoundError:
             print('Input file does not exist')
@@ -75,5 +68,5 @@ class CsvReportProcesser():
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-print(CsvReportProcesser.csv_report_processing2(BASE_DIR + '/test.csv',
-                                                BASE_DIR + '/output_test.csv'))
+print(CsvReportProcesser.csv_report_processing(BASE_DIR + '/test.csv',
+                                               BASE_DIR + '/output_test.csv'))
