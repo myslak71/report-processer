@@ -41,31 +41,38 @@ class CsvReportProcesser():
     @staticmethod
     def csv_report_processing2(input_path, output_path):
         warnings = {
-            'date': [],
-            'impressions': [],
-            'clicks': []
+
         }
         columns = ('date', 'country_code', 'impressions', 'clicks')
 
         df = CsvReportProcesser.__open_depending_on_encoding2(input_path, columns)
         df['country_code'] = df['country_code'].map(lambda x: CsvReportProcesser.__convert_state_to_country(x))
 
-        df['date'] = df['date'].map(lambda date: CsvReportProcesser.convert_date(date))
         df['warning'] = 0
 
         for row in df.itertuples():
             try:
-                df.at[row.Index, 'clicks'] = round(float(row.clicks.rstrip('%')) / 100 * int(row.impressions))
+                df.at[row.Index, 'date'] = pd.to_datetime(row.date)
             except Exception as e:
+                print(e)
+                df.at[row.Index, 'warning'] = 1
+            try:
+                df.at[row.Index, 'clicks'] = round(float(row.clicks.rstrip('%')) / 100 * int(row.impressions))
+                df.at[row.Index, 'date'] = pd.to_datetime(row.date)
+            except Exception as e:
+                print(e)
                 df.at[row.Index, 'warning'] = 1
 
-        df = df[df['warning'] != 1]
+        print(df)
+        df_valid = df[df['warning'] != 1]
+        print(df_valid)
+        df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(lambda x: x.astype(int).sum())
 
-        df.groupby(['date', 'country_code'], as_index=False).agg({'impressions': 'sum', 'clicks': 'sum'}).to_csv(
-            output_path,
-            index=False,
-            header=False,
-            line_terminator='\n')
+        # df.groupby(['date', 'country_code'], as_index=False).agg({'impressions': 'sum', 'clicks': 'sum'}).to_csv(
+        #     output_path,
+        #     index=False,
+        #     header=False,
+        #     line_terminator='\n')
 
         # try:
         #     df.at[i, 'clicks'] = row['clicks'] * row['impressions'] / 100
