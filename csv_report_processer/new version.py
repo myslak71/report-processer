@@ -1,5 +1,5 @@
 import os
-
+import numpy as np
 import pandas as pd
 import pycountry
 
@@ -22,46 +22,6 @@ class CsvReportProcesser():
             return 'XXX'
 
     @staticmethod
-    def __open_depending_on_encoding(input_path, columns, converters):
-        try:
-            df = pd.read_csv(input_path, names=columns, converters=converters, index_col=False,
-                                 keep_default_na=False)
-        except UnicodeDecodeError:
-            df = pd.read_csv(input_path, names=columns, converters=converters, index_col=False,
-                                 keep_default_na=False, encoding='utf-16')
-        return df
-
-    @staticmethod
-    def csv_report_processing(input_path, output_path):
-        columns = ('date', 'country_code', 'impressions', 'clicks')
-
-        converters = {
-            'date': pd.to_datetime,
-            'country_code': CsvReportProcesser.__convert_state_to_country,
-        }
-
-        try:
-            df = CsvReportProcesser.__open_depending_on_encoding(input_path, columns, converters)
-        except Exception as e:
-            error_message = CsvReportProcesser.__error_messages.get(type(e).__name__)
-            if error_message:
-                return error_message
-            return CsvReportProcesser.__error_messages.get('Default')
-
-        try:
-            df['clicks'] = round(df.impressions.astype(float) * df.clicks.str.rstrip('%').astype(float) / 100).astype(
-                int)
-        except ValueError as e:
-            return f'Invalid number of impressions or CTR percentage data\n{str(e).capitalize()}'
-
-        df.groupby(['date', 'country_code'], as_index=False).sum().to_csv(output_path,
-                                                                          index=False,
-                                                                          header=False,
-                                                                          line_terminator='\n')
-
-        return f"CSV file has been created at {output_path}"
-
-    @staticmethod
     def __open_depending_on_encoding2(input_path, columns):
         try:
             df = pd.read_csv(input_path, names=columns, index_col=False,
@@ -72,30 +32,47 @@ class CsvReportProcesser():
         return df
 
     @staticmethod
+    def convert_date(date):
+        try:
+            return pd.to_datetime(date)
+        except Exception:
+            return date
+
+    @staticmethod
     def csv_report_processing2(input_path, output_path):
+        warnings = {
+            'date': [],
+            'impressions': [],
+            'clicks': []
+        }
         columns = ('date', 'country_code', 'impressions', 'clicks')
 
         df = CsvReportProcesser.__open_depending_on_encoding2(input_path, columns)
-
         df['country_code'] = df['country_code'].map(lambda x: CsvReportProcesser.__convert_state_to_country(x))
 
-        for index, row in df.itertuples():
+        df['date'] = df['date'].map(lambda date: CsvReportProcesser.convert_date(date))
+        df['warning'] = 0
 
+        for row in df.itertuples():
+            try:
+                df.at[row.Index, 'clicks'] = round(float(row.clicks.rstrip('%')) / 100 * int(row.impressions))
+            except Exception as e:
+                df.at[row.Index, 'warning'] = 1
 
-        df['date'] = df['date'].map(lambda x: pd.to_datetime(x))
+        df = df[df['warning'] != 1]
 
+        df.groupby(['date', 'country_code'], as_index=False).agg({'impressions': 'sum', 'clicks': 'sum'}).to_csv(
+            output_path,
+            index=False,
+            header=False,
+            line_terminator='\n')
 
-        print(df)
-
-
-
-
-
-
-
-
+        # try:
+        #     df.at[i, 'clicks'] = row['clicks'] * row['impressions'] / 100
+        # except Exception as e:
+        #     print(e)
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 print(CsvReportProcesser.csv_report_processing2(BASE_DIR + '/test.csv',
-                                               BASE_DIR + '/output_test.csv'))
+                                                BASE_DIR + '/output_test.csv'))
