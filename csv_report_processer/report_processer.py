@@ -6,7 +6,7 @@ import pycountry
 from csv_report_processer.config import LOGGER
 
 
-class ReportProcesser:
+class ReportProcesser(object):
     """
 
     """
@@ -24,9 +24,9 @@ class ReportProcesser:
         try:
             df = ReportProcesser._open_report(input_path, cls._columns)
         except UnicodeError:
-            print('Invalid file encoding - supported encodings: UTF-8, UTF-16')
+            LOGGER.error('Invalid file encoding - supported encodings: UTF-8, UTF-16')
         except FileNotFoundError:
-            print('Input file does not exist')
+            LOGGER.error(f'Input file {input_path} does not exist')
         else:
             ReportProcesser._convert_data(df)
 
@@ -46,7 +46,6 @@ class ReportProcesser:
                     header=False,
                     columns=cls._columns,
                     line_terminator='\n')
-
 
     @staticmethod
     def _aggregate_rows(row):
@@ -83,7 +82,7 @@ class ReportProcesser:
             try:
                 df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%y/%m/%d')
             except Exception as e:
-                print(e)
+                LOGGER.warning(f"Following date could not be converted: {df.at[row.Index, 'date']}\n")
                 df.at[row.Index, 'warning'] = 1
 
             try:
@@ -91,6 +90,8 @@ class ReportProcesser:
                 df.at[row.Index, 'clicks'] = round(df.at[row.Index, 'clicks'] * int(row.impressions))
             except Exception as e:
                 print(e)
+                print(dir(e))
+                print(e.args)
                 df.at[row.Index, 'warning'] = 1
 
     @staticmethod
@@ -108,7 +109,8 @@ class ReportProcesser:
             return 'XXX'
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-print('so', ReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
-                                               BASE_DIR + '/output_test.csv',
-                                               BASE_DIR + '/error.csv'))
+if __name__ == '__main__':
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    ReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
+                                       BASE_DIR + '/output_test.csv',
+                                       BASE_DIR + '/error.csv')

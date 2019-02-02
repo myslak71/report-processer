@@ -10,8 +10,10 @@ def get_parser():
     parser.add_argument('-e', '--errors', help='Output CSV file with corrupted rows')
     return parser
 
-
-if __name__ == '__main__':
-    parser = get_parser().parse_args()
-    processer = ReportProcesser()
-    processer.process_csv_report(parser.input, parser.output, parser.errors)
+#
+# if __name__ == '__main__':
+#     parser = get_parser().parse_args()
+#     processer = ReportProcesser()
+#     processer.process_csv_report(parser.input, parser.output, parser.errors)
+#
+#
