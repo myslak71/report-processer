@@ -3,3 +3,34 @@
 2019-02-02 16:38 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '8ds83'
 2019-02-02 16:38 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
 Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 18:13 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2asd1/2019
+
+2019-02-02 18:13 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '8ds83'
+2019-02-02 18:13 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 18:13 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2asd1/2019
+
+2019-02-02 18:13 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '8ds83'
+2019-02-02 18:13 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 18:13 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2asd1/2019
+
+2019-02-02 18:13 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '8ds83'
+2019-02-02 18:13 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 20:20 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2asd1/2019
+
+2019-02-02 20:20 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '8ds83'
+2019-02-02 20:20 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 20:25 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2asd1/2019
+
+2019-02-02 20:25 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '8ds83'
+2019-02-02 20:25 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 20:27 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2asd1/2019
+
+2019-02-02 20:27 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '8ds83'
+2019-02-02 20:27 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 20:44 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv

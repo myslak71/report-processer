@@ -1,0 +1,54 @@
+2019-02-02 17:12 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at 666
+2019-02-02 20:17 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ffb24c26948>
+2019-02-02 20:17 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f754b044948>
+2019-02-02 20:18 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f43213cf948>
+2019-02-02 20:18 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7efdee750948>
+2019-02-02 20:18 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ffb08582948>
+2019-02-02 20:19 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f977b601948>
+2019-02-02 20:23 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f8d56f0d5e8>
+2019-02-02 20:27 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f2411cb65e8>
+2019-02-02 20:27 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f19c683b5e8>
+2019-02-02 20:28 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f8ee03005e8>
+2019-02-02 20:28 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f2a80a695e8>
+2019-02-02 20:30 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f73522ff5e8>
+2019-02-02 20:31 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ff06f5619d8>
+2019-02-02 20:34 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f7465501798>
+2019-02-02 20:36 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f714cb74798>
+2019-02-02 20:37 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fbeefcae798>
+2019-02-02 20:38 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f98e64c6708>
+2019-02-02 20:38 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f66e55e5798>
+2019-02-02 20:38 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fe56be59798>
+2019-02-02 20:39 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f7b5fa5f828>
+2019-02-02 20:39 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6832eaa798>
+2019-02-02 20:39 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7facddfd6798>
+2019-02-02 20:39 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fb607f52798>
+2019-02-02 20:40 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f8b1f4cb828>
+2019-02-02 20:40 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f9fcc79f798>
+2019-02-02 20:40 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6d699ad708>
+2019-02-02 20:40 - report_processer.py - process_csv_report - ERROR - Input file input is mocked does not exist
+Could not process the file.
+2019-02-02 20:42 - report_processer.py - process_csv_report - ERROR - Input file input is mocked does not exist
+Could not process the file.
+2019-02-02 20:43 - report_processer.py - process_csv_report - ERROR - Input file input is mocked does not exist
+Could not process the file.
+2019-02-02 20:44 - report_processer.py - process_csv_report - ERROR - Input file input is mocked does not exist
+Could not process the file.
+2019-02-02 20:45 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fe9b8af5798>
+2019-02-02 20:46 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f3f0ef63798>
+2019-02-02 20:47 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6c81fba798>
+2019-02-02 20:48 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ff88f118798>
+2019-02-02 20:49 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fc6615d9798>
+2019-02-02 20:49 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fe6b4c10798>
+2019-02-02 20:49 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f0fa90a2798>
+2019-02-02 20:49 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f5774a39828>
+2019-02-02 20:50 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f42a9642798>
+2019-02-02 20:52 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fd56c78d828>
+2019-02-02 20:52 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fca39b428b8>
+2019-02-02 20:52 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6b619888b8>
+2019-02-02 20:53 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fe815f66828>
+2019-02-02 20:53 - report_processer.py - _convert_data - ERROR - Row 11: Following CTR could not be converted: '0.68%das'
+2019-02-02 20:53 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f67f0b31828>
+2019-02-02 20:53 - report_processer.py - _convert_data - ERROR - Row 7: Following CTR could not be converted: '0.7%ads'
+2019-02-02 20:53 - report_processer.py - _convert_data - ERROR - Row 9: Following CTR could not be converted: '0.1%asd'
+2019-02-02 20:53 - report_processer.py - _convert_data - ERROR - Row 11: Following CTR could not be converted: '0.68%das'
+2019-02-02 20:53 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fabf7fc9828>
