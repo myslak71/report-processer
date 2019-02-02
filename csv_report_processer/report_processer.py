@@ -1,11 +1,12 @@
-# import os
+import os
 
 import pandas as pd
 import pycountry
 
 from csv_report_processer.config import LOGGER
 
-class CsvReportProcesser:
+
+class ReportProcesser(object):
     """
 
     """
@@ -21,26 +22,30 @@ class CsvReportProcesser:
         :return:
         """
         try:
-            df = CsvReportProcesser._open_report(input_path, cls._columns)
+            df = ReportProcesser._open_report(input_path, cls._columns)
         except UnicodeError:
-            print('Invalid file encoding - supported encodings: UTF-8, UTF-16')
+            LOGGER.error('Invalid file encoding - supported encodings: UTF-8, UTF-16')
         except FileNotFoundError:
-            print('Input file does not exist')
+            LOGGER.error(f'Input file {input_path} does not exist')
         else:
-            CsvReportProcesser._convert_data(df)
+            ReportProcesser._convert_data(df)
 
             df_valid = df[df['warning'] != 1]
-            df_warnings = df[df['warning'] == 1]
-            df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
-
-            pd.concat([df_valid, df_warnings]).sort_values(by=['date', 'country_code']).to_csv(
+            df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows).to_csv(
                 output_path,
                 index=False,
                 header=False,
                 columns=cls._columns,
                 line_terminator='\n')
 
-            # TODO: save rows with error to separate csv file
+            if error_path and not df[df['warning'] == 1].empty:
+                df_warnings = df[df['warning'] == 1]
+                df_warnings.to_csv(
+                    error_path,
+                    index=False,
+                    header=False,
+                    columns=cls._columns,
+                    line_terminator='\n')
 
     @staticmethod
     def _aggregate_rows(row):
@@ -69,7 +74,7 @@ class CsvReportProcesser:
         :param df:
         :return:
         """
-        df['country_code'] = df['country_code'].map(lambda x: CsvReportProcesser._convert_state_to_country(x))
+        df['country_code'] = df['country_code'].apply(lambda x: ReportProcesser._convert_state_to_country(x))
 
         df['warning'] = 0
 
@@ -77,7 +82,7 @@ class CsvReportProcesser:
             try:
                 df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%y/%m/%d')
             except Exception as e:
-                print(e)
+                LOGGER.warning(f"Following date could not be converted: {df.at[row.Index, 'date']}\n")
                 df.at[row.Index, 'warning'] = 1
 
             try:
@@ -85,6 +90,8 @@ class CsvReportProcesser:
                 df.at[row.Index, 'clicks'] = round(df.at[row.Index, 'clicks'] * int(row.impressions))
             except Exception as e:
                 print(e)
+                print(dir(e))
+                print(e.args)
                 df.at[row.Index, 'warning'] = 1
 
     @staticmethod
@@ -102,6 +109,8 @@ class CsvReportProcesser:
             return 'XXX'
 
 
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# print(CsvReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
-#                                             BASE_DIR + '/output_test.csv'))
+if __name__ == '__main__':
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    ReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
+                                       BASE_DIR + '/output_test.csv',
+                                       BASE_DIR + '/error.csv')
