@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from csv_report_processer import CsvReportProcesser
+from csv_report_processer import ReportProcesser
 
 def get_parser():
     parser = ArgumentParser(description='CSV Report Processing description')
@@ -13,5 +13,5 @@ def get_parser():
 
 if __name__ == '__main__':
     parser = get_parser().parse_args()
-    processer = CsvReportProcesser()
-    processer.process_csv_report(parser.input, parser.output)
+    processer = ReportProcesser()
+    processer.process_csv_report(parser.input, parser.output, parser.errors)

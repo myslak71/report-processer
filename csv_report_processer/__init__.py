@@ -1,1 +1,1 @@
-from csv_report_processer.crp import CsvReportProcesser
+from csv_report_processer.report_processer import ReportProcesser
