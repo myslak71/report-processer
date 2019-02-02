@@ -84,9 +84,9 @@ class ReportProcesser(object):
 
         for row in df.itertuples():
             try:
-                df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%y/%m/%d')
-            except Exception as e:
-                LOGGER.warning(f"Row {row.Index}: Following date could not be converted: {df.at[row.Index, 'date']}\n")
+                df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%Y-%m-%d')
+            except ValueError:
+                LOGGER.error(f"Row {row.Index}: Following date could not be converted: {df.at[row.Index, 'date']}\n")
                 df.at[row.Index, 'error'] = 1
 
             try:
@@ -95,7 +95,8 @@ class ReportProcesser(object):
             except Exception as e:
                 if str(e).startswith('invalid literal for int() with base 10: '):
                     error_message = str(e).replace('invalid literal for int() with base 10: ',
-                                                   f'Row {row.Index}: Following impression number could not be converted: ')
+                                                   f'Row {row.Index}: Following impression number '
+                                                   f'could not be converted: ')
                 else:
                     error_message = str(e).replace('could not convert string to float: ',
                                                    f'Row {row.Index}: Following CTR could not be converted: ')
