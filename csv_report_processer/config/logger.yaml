@@ -1,0 +1,35 @@
+version: 1
+
+formatters:
+  console_formatter:
+    format: '%(asctime)s - %(filename)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M'
+  file_formatter:
+    format: '%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M'
+
+handlers:
+  file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: file_formatter
+    level: DEBUG
+    filename: crp.log
+    mode: 'w'
+    maxBytes: 10485760
+    backupCount: 5
+  stdout_handler:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: console_formatter
+    stream: ext://sys.stdout
+  stderr_handler:
+    class: logging.StreamHandler
+    level: WARN
+    formatter: console_formatter
+    stream: ext://sys.stderr
+
+loggers:
+  crp_logger:
+    level: DEBUG
+    handlers: [file, stdout_handler, stderr_handler]
+    propagate: no
