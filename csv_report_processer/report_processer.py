@@ -31,25 +31,22 @@ class ReportProcesser(object):
             ReportProcesser._convert_data(df)
 
             df_valid = df[df['error'] != 1]
-            df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows).to_csv(
-                output_path,
-                index=False,
-                header=False,
-                columns=cls._columns,
-                line_terminator='\n')
+            df_error = df[df['error'] == 1]
 
-            if error_path and not df[df['error'] == 1].empty:
-                df_error = df[df['error'] == 1]
-                df_error.to_csv(
-                    error_path,
-                    index=False,
-                    header=False,
-                    columns=cls._columns,
-                    line_terminator='\n')
-                LOGGER.info(f"File has been converted with errors and saved at {output_path}\nInvalid data was excluded"
-                            f" from the result and saved at {error_path}")
-            else:
-                LOGGER.info(f"File has been converted without errors and saved at {output_path}")
+            if df_error.empty or not error_path:
+                df = df.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
+                df.to_csv(output_path, index=False, header=False,
+                          columns=cls._columns, line_terminator='\n')
+                word = 'out' if df_error.empty else ''
+                LOGGER.info(f"File has been converted with{word} errors and saved at {output_path}")
+            elif error_path:
+                df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
+                df_valid.to_csv(output_path, index=False, header=False,
+                                columns=cls._columns, line_terminator='\n')
+                df_error.to_csv(error_path, index=False, header=False,
+                                columns=cls._columns, line_terminator='\n')
+                LOGGER.info(f"File has been converted with errors and saved at {output_path}")
+                LOGGER.info(f"Invalid data has been excluded from the result and saved at {error_path}")
 
     @staticmethod
     def _aggregate_rows(row):
@@ -122,4 +119,4 @@ if __name__ == '__main__':
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     ReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
                                        BASE_DIR + '/output_test.csv',
-                                       BASE_DIR + '/error.csv')
+                                       BASE_DIR + '/errors.csv')

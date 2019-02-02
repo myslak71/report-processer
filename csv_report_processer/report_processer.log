@@ -34,3 +34,85 @@ Invalid data was excluded from the result and saved at /home/myslak/PycharmProje
 2019-02-02 20:27 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
 Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
 2019-02-02 20:44 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 22:11 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 22:11 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:11 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/error.csv
+2019-02-02 22:11 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:11 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 22:14 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:14 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:14 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:14 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:16 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:16 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:16 - report_processer.py - process_csv_report - INFO - Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 22:16 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:16 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:21 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:21 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:24 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2sad1/2019
+
+2019-02-02 22:24 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:25 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 22:25 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 22:25 - report_processer.py - process_csv_report - INFO - Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 22:33 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 22:34 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2d1/2019
+
+2019-02-02 22:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:34 - report_processer.py - process_csv_report - INFO - Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 22:34 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2d1/2019
+
+2019-02-02 22:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:39 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2d1/2019
+
+2019-02-02 22:39 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+
+2019-02-02 22:39 - report_processer.py - process_csv_report - INFO - Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 22:50 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2d1/2019
+
+2019-02-02 22:59 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2d1/2019
+
+2019-02-02 22:59 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 23:00 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2d1/2019
+
+2019-02-02 23:00 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 23:01 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 23:02 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 23:02 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 23:03 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 23:03 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2das1/2019
+
+2019-02-02 23:03 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 23:03 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2das1/2019
+
+2019-02-02 23:03 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 23:05 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2das1/2019
+
+2019-02-02 23:05 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2das1/2019
+
+2019-02-02 23:05 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 23:05 - report_processer.py - process_csv_report - INFO - Invalid data was excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-02 23:05 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 01/2das1/2019
+
+2019-02-02 23:05 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-02 23:05 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv

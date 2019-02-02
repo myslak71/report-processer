@@ -52,3 +52,208 @@ Could not process the file.
 2019-02-02 20:53 - report_processer.py - _convert_data - ERROR - Row 9: Following CTR could not be converted: '0.1%asd'
 2019-02-02 20:53 - report_processer.py - _convert_data - ERROR - Row 11: Following CTR could not be converted: '0.68%das'
 2019-02-02 20:53 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fabf7fc9828>
+2019-02-02 20:55 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fe2526da8b8>
+2019-02-02 20:58 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f10710a58b8>
+2019-02-02 20:59 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f80e6a118b8>
+2019-02-02 20:59 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fd14ce9e8b8>
+2019-02-02 21:00 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f54b5724828>
+2019-02-02 21:01 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f1b9385b8b8>
+2019-02-02 21:01 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f3ca3b528b8>
+2019-02-02 21:01 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ff3bd3888b8>
+2019-02-02 21:01 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ff6cf6b18b8>
+2019-02-02 21:02 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fae9a3da8b8>
+2019-02-02 21:02 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fcdb62238b8>
+2019-02-02 21:02 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f55eaeb08b8>
+2019-02-02 21:09 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6b644ae828>
+2019-02-02 21:12 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f90cd6be678>
+2019-02-02 21:13 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7eff1b8e9708>
+2019-02-02 21:13 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fdeb133c828>
+2019-02-02 21:14 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ff3db065678>
+2019-02-02 21:14 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f683c4da8b8>
+2019-02-02 21:14 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f53b1a6d828>
+2019-02-02 21:15 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f88d42af828>
+2019-02-02 21:16 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f0e9ec728b8>
+2019-02-02 21:16 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fa4a39ff828>
+2019-02-02 21:18 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f085d58e708>
+2019-02-02 21:18 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f541b74d828>
+2019-02-02 21:18 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f1775379708>
+2019-02-02 21:19 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f5cbd0b3708>
+2019-02-02 21:19 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f5141d72708>
+2019-02-02 21:48 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fba760098b8>
+2019-02-02 21:49 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fd86b0d6828>
+2019-02-02 21:49 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6e5234b828>
+2019-02-02 21:55 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 21:55 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f94231989d8>
+2019-02-02 21:57 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 21:57 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f32a9a34a68>
+2019-02-02 21:57 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f32c2a8bb88>
+2019-02-02 21:58 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fcb018f5a68>
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:04 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f495af1daf8>
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:04 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fc9e4369a68>
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:04 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:04 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fc9e4369af8>
+2019-02-02 22:04 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fc9e43e0b88>
+2019-02-02 22:04 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f900314aaf8>
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:05 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fc3359d2af8>
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:05 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f41dee23af8>
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:05 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f0ae329daf8>
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:05 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f344e909a68>
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:05 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:05 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f344e909af8>
+2019-02-02 22:05 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f344e980b88>
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:10 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f637e899b88>
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:10 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6397e77798>
+2019-02-02 22:10 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f637e822af8>
+2019-02-02 22:10 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:10 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fa1a65a5af8>
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fb5656bdaf8>
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f68869eda68>
+
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f68869edaf8>
+
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6886a64b88>
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f18ea1eeaf8>
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f638199ca68>
+
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f638199caf8>
+
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6381a13b88>
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7ffa8476ba68>
+
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 22:22 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7ffa8476baf8>
+
+2019-02-02 22:22 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7ffa847e2b88>
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 23:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f22082dc9d8>
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - 'int' object has no attribute 'rstrip'
+2019-02-02 23:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f22082dcc18>
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-02 23:07 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f2207c1d288>
+2019-02-02 23:07 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fcec69bca68>
+2019-02-02 23:07 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-02 23:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f99ef3d8a68>
+2019-02-02 23:08 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f19721f5a68>
+2019-02-02 23:08 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f6ef83e1a68>
