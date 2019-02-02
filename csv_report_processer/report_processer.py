@@ -34,11 +34,11 @@ class ReportProcesser(object):
             df_error = df[df['error'] == 1]
 
             if df_error.empty or not error_path:
-                df = df.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
-                df.to_csv(output_path, index=False, header=False,
+                df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
+                pd.concat([df_valid, df_error]).to_csv(output_path, index=False, header=False,
                           columns=cls._columns, line_terminator='\n')
-                word = 'out' if df_error.empty else ''
-                LOGGER.info(f"File has been converted with{word} errors and saved at {output_path}")
+                filling = 'out' if df_error.empty else ''
+                LOGGER.info(f"File has been converted with{filling} errors and saved at {output_path}")
             elif error_path:
                 df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 df_valid.to_csv(output_path, index=False, header=False,
