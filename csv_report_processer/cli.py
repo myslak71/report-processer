@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from csv_report_processer.csv_report_processer import CsvReportProcesser
+from csv_report_processer.crp import CsvReportProcesser
 
 processer = CsvReportProcesser()
 
