@@ -13,7 +13,7 @@ class ReportProcesser(object):
     _columns = ('date', 'country_code', 'impressions', 'clicks')
 
     @classmethod
-    def process_csv_report(cls, input_path, output_path, error_path=None):
+    def process_csv_report(cls, input_path, output_path, error_path='None'):
         """
 
         :param input_path:
@@ -21,6 +21,7 @@ class ReportProcesser(object):
         :param error_path:
         :return:
         """
+        print('error path', error_path)
         try:
             df = ReportProcesser._open_report(input_path, cls._columns)
         except UnicodeError:
@@ -31,6 +32,7 @@ class ReportProcesser(object):
             ReportProcesser._convert_data(df)
 
             df_valid = df[df['error'] != 1]
+            print(df_valid)
             df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows).to_csv(
                 output_path,
                 index=False,
@@ -85,8 +87,8 @@ class ReportProcesser(object):
         for row in df.itertuples():
             try:
                 df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%y/%m/%d')
-            except Exception as e:
-                LOGGER.warning(f"Row {row.Index}: Following date could not be converted: {df.at[row.Index, 'date']}\n")
+            except ValueError:
+                LOGGER.error(f"Row {row.Index}: Following date could not be converted: {df.at[row.Index, 'date']}\n")
                 df.at[row.Index, 'error'] = 1
 
             try:
@@ -95,7 +97,8 @@ class ReportProcesser(object):
             except Exception as e:
                 if str(e).startswith('invalid literal for int() with base 10: '):
                     error_message = str(e).replace('invalid literal for int() with base 10: ',
-                                                   f'Row {row.Index}: Following impression number could not be converted: ')
+                                                   f'Row {row.Index}: Following impression number '
+                                                   f'could not be converted: ')
                 else:
                     error_message = str(e).replace('could not convert string to float: ',
                                                    f'Row {row.Index}: Following CTR could not be converted: ')
