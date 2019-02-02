@@ -1,9 +1,9 @@
-import os
+# import os
 
 import pandas as pd
 import pycountry
 
-from csv_report_processer.config.config import LOGGER
+from csv_report_processer.config import LOGGER
 
 class CsvReportProcesser:
     """
@@ -102,6 +102,6 @@ class CsvReportProcesser:
             return 'XXX'
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-print(CsvReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
-                                            BASE_DIR + '/output_test.csv'))
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# print(CsvReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
+#                                             BASE_DIR + '/output_test.csv'))

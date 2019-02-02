@@ -12,12 +12,13 @@ install_requires = [line.rstrip('\n') for line in open(
     os.path.join(DIR_PATH, 'requirements.txt'))]
 
 setup(
-    name='csv-report-processer',
+    name='csv_report_processer',
     version='0.1.0',
     packages=find_packages(),
-    author='myslak71',
+    author='Kornel Szurek',
     author_email='kornel.szurek@protonmail.com',
     description='CSV report processor for Clearcode',
     long_description=long_description,
-    install_requires=install_requires
+    install_requires=install_requires,
+    include_package_data=True
 )
