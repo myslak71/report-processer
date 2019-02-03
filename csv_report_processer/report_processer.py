@@ -17,16 +17,24 @@ class ReportProcesser(object):
         """
         Report processing function.
 
-        For given .csv file creates output .csv file and optional error .csv file.
+        If possible, converts input file data to specific format.
+        For given CSV file creates output CSV file and optional error CSV file.
         In case of critical errors, sends error message to output and does not
-        create .csv file.
+        create CSV file.
+        Input format: UTF-8 or UTF-16 CSV file
+            mm/dd/yyyy,state_name,number_of_impressions,CTR%
+        Output file row format:
+            yyyy-mm-dd,country_code(str[3]),number_of_impressions,number_of_clicks
+
 
         :param input_path: str
             Path to input .csv file
             Supported file encoding: UTF-8, UTF-16
-            Input file format: mm/dd/yyyy(str), state_name(str), number_of_impressions(int), CTR(str)
+            Input file format:
+                mm/dd/yyyy(str), state_name(str), number_of_impressions(int), CTR(float)%
         :param output_path: str
             Path to output .csv file
+
         :param error_path: str, default None
             Path to output error .csv file
             If specified, but no errors has occured, error .csv file is not created.
