@@ -2,11 +2,13 @@ import io
 import unittest
 
 from mock import patch
-
+from ddt import ddt, data, unpack
 from csv_report_processer.report_processer import ReportProcesser
-from tests.fixtures.datsets import VALID_OUTPUT, INPUT_DFS, INVALID_DATA_OUTPUT, INVALID_IMPRESSIONS_OUTPUT, INVALID_DATE_ERROR
+from tests.fixtures.datsets import VALID_OUTPUT, INPUT_DFS, INVALID_DATA_OUTPUT, INVALID_IMPRESSIONS_OUTPUT, \
+    INVALID_DATE_ERROR, INVALID_IMPRESSIONS_ERROR, INVALID_CTR_ERROR, INVALID_CTR_OUTPUT
 
 
+@ddt
 class TestReportProcesser(unittest.TestCase):
 
     # TODO fix broken tests to fit updated function
@@ -14,42 +16,33 @@ class TestReportProcesser(unittest.TestCase):
         self.valid_file = io.StringIO()
         self.error_file = io.StringIO()
 
+    @data((INPUT_DFS['VALID_INPUT'], VALID_OUTPUT),
+          (INPUT_DFS['INVALID_DATE_INPUT'], INVALID_DATA_OUTPUT),
+          (INPUT_DFS['INVALID_IMPRESSIONS_INPUT'], INVALID_IMPRESSIONS_OUTPUT),
+          (INPUT_DFS['INVALID_CTR_INPUT'], INVALID_CTR_OUTPUT))
+    @unpack
     @patch('csv_report_processer.report_processer.pd.read_csv')
-    def test_process_csv_report_valid(self, mocked_read_csv):
-        model_df = INPUT_DFS['VALID_INPUT'].copy()
+    def test_proccess_csv_report_valid_output(self, input_df, expected_output, mocked_read_csv):
+        model_df = input_df.copy()
         mocked_read_csv.return_value = model_df
         ReportProcesser.process_csv_report('input is mocked', self.valid_file)
         self.valid_file.seek(0)
-        self.assertEqual(self.valid_file.read().rstrip(), VALID_OUTPUT)
+        self.assertEqual(self.valid_file.read().rstrip(), expected_output)
 
+    @data((INPUT_DFS['INVALID_DATE_INPUT'], INVALID_DATE_ERROR),
+          (INPUT_DFS['INVALID_IMPRESSIONS_INPUT'], INVALID_IMPRESSIONS_ERROR),
+          (INPUT_DFS['INVALID_CTR_INPUT'], INVALID_CTR_ERROR))
+    @unpack
     @patch('csv_report_processer.report_processer.pd.read_csv')
-    def test_process_csv_report_invalid_date_output(self, mocked_read_csv):
-        model_df = INPUT_DFS['INVALID_DATE_INPUT'].copy()
-        mocked_read_csv.return_value = model_df
-        ReportProcesser.process_csv_report('input is mocked', self.valid_file)
-        self.valid_file.seek(0)
-        self.assertEqual(self.valid_file.read().rstrip(), INVALID_DATA_OUTPUT)
-
-    @patch('csv_report_processer.report_processer.pd.read_csv')
-    def test_process_csv_report_invalid_impressions_output(self, mocked_read_csv):
-        model_df = INPUT_DFS['INVALID_IMPRESSIONS_INPUT'].copy()
-        mocked_read_csv.return_value = model_df
-        ReportProcesser.process_csv_report('input is mocked', self.valid_file)
-        self.valid_file.seek(0)
-        self.assertEqual(self.valid_file.read().rstrip(), INVALID_IMPRESSIONS_OUTPUT)
-    #
-    @patch('csv_report_processer.report_processer.pd.read_csv')
-    def test_process_csv_report_invalid_date_error(self, mocked_read_csv):
-        model_df = INPUT_DFS['INVALID_DATE_INPUT'].copy()
+    def test_proccess_csv_report_error_output(self, input_df, expected_output, mocked_read_csv):
+        model_df = input_df.copy()
         mocked_read_csv.return_value = model_df
         ReportProcesser.process_csv_report('input is mocked', self.valid_file, self.error_file)
         self.error_file.seek(0)
-        self.assertEqual(self.error_file.read().rstrip(), INVALID_DATE_ERROR)
+        self.assertEqual(self.error_file.read().rstrip(), expected_output)
 
     def test_convert_state_to_country_converts_to_xxx(self):
         self.assertEqual(ReportProcesser._convert_state_to_country('2%13dask123'), 'XXX')
 
     def test_convert_state_to_country_valid(self):
         self.assertEqual(ReportProcesser._convert_state_to_country('British Columbia'), 'CAN')
-
-
