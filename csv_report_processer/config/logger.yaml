@@ -8,13 +8,13 @@ formatters:
     format: '%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s'
     datefmt: '%Y-%m-%d %H:%M'
 
-#filters:
-#  info_filter:
-#    (): csv_report_processer.config.filter.LogLevelFilter
-#    level: 20
-#  error_filter:
-#    (): csv_report_processer.config.filter.LogLevelFilter
-#    level: 40
+filters:
+  info_filter:
+    (): csv_report_processer.filter.LogLevelFilter
+    level: 20
+  error_filter:
+    (): csv_report_processer.filter.LogLevelFilter
+    level: 40
 
 handlers:
   file:
@@ -30,13 +30,14 @@ handlers:
     level: INFO
     formatter: console_formatter
     stream: ext://sys.stdout
-#    filters: [info_filter]
+    filters: [info_filter]
   stderr_handler:
     class: logging.StreamHandler
     level: WARN
     formatter: console_formatter
     stream: ext://sys.stderr
-#    filters: [error_filter]
+    filters: [error_filter]
+
 loggers:
   crp_logger:
     level: DEBUG
