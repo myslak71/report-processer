@@ -10,10 +10,10 @@ formatters:
 
 #filters:
 #  info_filter:
-#    (): config.filter.LogLevelFilter
+#    (): csv_report_processer.config.filter.LogLevelFilter
 #    level: 20
 #  error_filter:
-#    (): config.filter.LogLevelFilter
+#    (): csv_report_processer.config.filter.LogLevelFilter
 #    level: 40
 
 handlers:
