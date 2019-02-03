@@ -4,7 +4,19 @@ CSV Report Processer
 [![Coverage Status](https://coveralls.io/repos/github/myslak71/csv_report_processer/badge.svg?branch=master)](https://coveralls.io/github/myslak71/csv_report_processer?branch=master)
 
 ###Description
-Package reads from CSV file, formatted as follows:
+Package reads from CSV file, with rows formatted as follows:
+```
+mm/dd/yyy,state_name,number_of_impressions,CTR%
+```
+and converts according to the table:
+
+| INPUT FORMAT  | OUTPUT FORMAT|
+|---|---|
+|date |yyyy-mm-dd|
+|state_name |three letter country code or 'XXX' if state_name does not exist in ISO 3166-2|
+|number_of_impressions|casted to int|
+|CTR%| number of clicks based on CTR% and number of impressions
+
 ```
 01/21/2019,Mandiana,883,0.38%
 01/21/2019,Lola,76,0.78%
