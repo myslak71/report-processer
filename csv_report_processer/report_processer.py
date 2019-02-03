@@ -15,11 +15,15 @@ class ReportProcesser(object):
     @classmethod
     def process_csv_report(cls, input_path, output_path, error_path=None):
         """
+        Report processing function.
 
-        :param input_path:
-        :param output_path:
-        :param error_path:
-        :return:
+        For given .csv file creates output .csv file and optional error .csv file.
+        In case of critical errors sends error message to output
+
+        :param input_path: str
+
+        :param output_path: str
+        :param error_path: str, optional
         """
         try:
             df = ReportProcesser._open_report(input_path, cls._columns)
