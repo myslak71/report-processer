@@ -24,11 +24,12 @@ class ReportProcesser(object):
         :param input_path: str
             Path to input .csv file
             Supported file encoding: UTF-8, UTF-16
+            Input file format: mm/dd/yyyy(str), state_name(str), number_of_impressions(int), CTR(str)
         :param output_path: str
             Path to output .csv file
         :param error_path: str, default None
             Path to output error .csv file
-            If specified, but no errors has occured, file is not created.
+            If specified, but no errors has occured, error .csv file is not created.
         """
         try:
             df = ReportProcesser._open_report(input_path, cls._columns)
@@ -47,7 +48,7 @@ class ReportProcesser(object):
                 pd.concat([df_valid, df_error]).to_csv(output_path, index=False, header=False,
                           columns=cls._columns, line_terminator='\n')
                 word = 'out' if df_error.empty else ''
-                LOGGER.info(f"File has been converted with{word} errors and saved at {output_path}")
+                LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
             elif error_path:
                 df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
@@ -55,8 +56,8 @@ class ReportProcesser(object):
                                 columns=cls._columns, line_terminator='\n')
                 df_error.to_csv(error_path, index=False, header=False,
                                 columns=cls._columns, line_terminator='\n')
-                LOGGER.info(f"File has been converted with errors and saved at {output_path}")
-                LOGGER.info(f"Invalid data has been excluded from the result and saved at {error_path}")
+                LOGGER.info(f'File has been converted with errors and saved at {output_path}')
+                LOGGER.info(f'Invalid data has been excluded from the result and saved at {error_path}')
 
     @staticmethod
     def _aggregate_rows(row):
@@ -66,15 +67,20 @@ class ReportProcesser(object):
     def _open_report(input_path, columns):
         """
         Csv file opening function.
-        Opens .csv report.
-        Supported file encoding: UTF-8, UTF-16
 
+        Opens .csv report.
+        First, tries to open file as UTF-8, then as UTF-16.
+        No other file encodings are supported.
 
         :param input_path: str
             Path to input .csv file
-        :param columns:
-        :return:
+        :param columns: tuple or list of str:
+            Contains column names to be used in Data Frame
+        :return: pandas.DataFrame or pandas.TextParser
+            DataFrame including data, column names and indexes
         """
+
+        # Tries to open file as utf-8, if it fails, tries to open as utf-16
         try:
             df = pd.read_csv(input_path, names=columns, index_col=False,
                              keep_default_na=False)
@@ -88,6 +94,9 @@ class ReportProcesser(object):
     @classmethod
     def _convert_data(cls, df):
         """
+        Data converting function
+
+        Tries to convert
 
         :param df:
         :return:
@@ -100,7 +109,7 @@ class ReportProcesser(object):
             try:
                 df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%Y-%m-%d')
             except ValueError:
-                LOGGER.error(f"Row {row.Index}: Following date could not be converted: {df.at[row.Index, 'date']}\n")
+                LOGGER.error(f'Row {row.Index}: Following date could not be converted: {df.at[row.Index, "date"]}\n')
                 df.at[row.Index, 'error'] = 1
 
             try:

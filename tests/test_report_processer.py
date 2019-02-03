@@ -4,14 +4,11 @@ import unittest
 from mock import patch
 from ddt import ddt, data, unpack
 from csv_report_processer.report_processer import ReportProcesser
-from tests.fixtures.datsets import VALID_OUTPUT, INPUT_DFS, INVALID_DATA_OUTPUT, INVALID_IMPRESSIONS_OUTPUT, \
-    INVALID_DATE_ERROR, INVALID_IMPRESSIONS_ERROR, INVALID_CTR_ERROR, INVALID_CTR_OUTPUT
+from tests.fixtures.datsets import *
 
 
 @ddt
 class TestReportProcesser(unittest.TestCase):
-
-    # TODO fix broken tests to fit updated function
     def setUp(self):
         self.valid_file = io.StringIO()
         self.error_file = io.StringIO()
