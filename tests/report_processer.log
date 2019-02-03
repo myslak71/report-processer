@@ -1070,3 +1070,39 @@ Could not process the file.
 2019-02-03 11:52 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f8857dd45e8>
 2019-02-03 11:52 - report_processer.py - _convert_data - ERROR - Row 0: Following CTR could not be converted: '0.3asd8'
 2019-02-03 11:52 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f88401dfe58>
+2019-02-03 12:07 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f11532f6168>
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at <_io.StringIO object at 0x7f1139ff2dc8>
+2019-02-03 12:07 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f1151f665e8>
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at <_io.StringIO object at 0x7f113999a798>
+2019-02-03 12:07 - report_processer.py - _convert_data - ERROR - Row 0: Following CTR could not be converted: '0.3asd8'
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f1153663678>
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at <_io.StringIO object at 0x7f113999a828>
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7f1139ff2dc8>
+2019-02-03 12:07 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f1151f665e8>
+2019-02-03 12:07 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f1153663678>
+2019-02-03 12:07 - report_processer.py - _convert_data - ERROR - Row 0: Following CTR could not be converted: '0.3asd8'
+2019-02-03 12:07 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7f1139ff2dc8>
+2019-02-03 12:34 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7fa45ad9d3a8>
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at <_io.StringIO object at 0x7fa45ad35798>
+2019-02-03 12:34 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7fa45ad9df78>
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at <_io.StringIO object at 0x7fa45a8458b8>
+2019-02-03 12:34 - report_processer.py - _convert_data - ERROR - Row 0: Following CTR could not be converted: '0.3asd8'
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7fa45ad9d678>
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at <_io.StringIO object at 0x7fa45a845948>
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - File has been converted without errors and saved at <_io.StringIO object at 0x7fa45ad35798>
+2019-02-03 12:34 - report_processer.py - _convert_data - ERROR - Row 0: Following date could not be converted: 0sad1/21/2019
+
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7fa45ad9df78>
+2019-02-03 12:34 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88asd3'
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7fa45ad9d678>
+2019-02-03 12:34 - report_processer.py - _convert_data - ERROR - Row 0: Following CTR could not be converted: '0.3asd8'
+2019-02-03 12:34 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at <_io.StringIO object at 0x7fa45ad35798>

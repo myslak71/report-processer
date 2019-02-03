@@ -37,8 +37,9 @@ class ReportProcesser(object):
                 df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 pd.concat([df_valid, df_error]).to_csv(output_path, index=False, header=False,
                           columns=cls._columns, line_terminator='\n')
-                filling = 'out' if df_error.empty else ''
-                LOGGER.info(f"File has been converted with{filling} errors and saved at {output_path}")
+                word = 'out' if df_error.empty else ''
+                LOGGER.info(f"File has been converted with{word} errors and saved at {output_path}")
+
             elif error_path:
                 df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 df_valid.to_csv(output_path, index=False, header=False,
@@ -68,14 +69,16 @@ class ReportProcesser(object):
                              keep_default_na=False, encoding='utf-16')
         return df
 
-    @staticmethod
-    def _convert_data(df):
+
+
+    @classmethod
+    def _convert_data(cls, df):
         """
 
         :param df:
         :return:
         """
-        df['country_code'] = df['country_code'].apply(lambda x: ReportProcesser._convert_state_to_country(x))
+        df['country_code'] = df['country_code'].apply(cls._convert_state_to_country)
 
         df['error'] = 0
 
