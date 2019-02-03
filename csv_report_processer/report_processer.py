@@ -46,7 +46,7 @@ class ReportProcesser(object):
             if df_error.empty or not error_path:
                 df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 pd.concat([df_valid, df_error]).to_csv(output_path, index=False, header=False,
-                          columns=cls._columns, line_terminator='\n')
+                                                       columns=cls._columns, line_terminator='\n')
                 word = 'out' if df_error.empty else ''
                 LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
@@ -88,8 +88,6 @@ class ReportProcesser(object):
             df = pd.read_csv(input_path, names=columns, index_col=False,
                              keep_default_na=False, encoding='utf-16')
         return df
-
-
 
     @classmethod
     def _convert_data(cls, df):
@@ -139,10 +137,3 @@ class ReportProcesser(object):
             return country.alpha_3
         except LookupError:
             return 'XXX'
-
-
-if __name__ == '__main__':
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    ReportProcesser.process_csv_report(BASE_DIR + '/test.csv',
-                                       BASE_DIR + '/output_test.csv',
-                                       BASE_DIR + '/errors.csv')
