@@ -18,13 +18,17 @@ class ReportProcesser(object):
         Report processing function.
 
         For given .csv file creates output .csv file and optional error .csv file.
-        In case of critical errors, sends error message to output
+        In case of critical errors, sends error message to output and does not
+        create .csv file.
 
         :param input_path: str
-            path to input .csv file (supported file encoding: UTF-8, UTF-16)
+            Path to input .csv file
+            Supported file encoding: UTF-8, UTF-16
         :param output_path: str
-            path to output .csv file
-        :param error_path: str, optional
+            Path to output .csv file
+        :param error_path: str, default None
+            Path to output error .csv file
+            If specified, but no errors occurs, file is not created
         """
         try:
             df = ReportProcesser._open_report(input_path, cls._columns)
