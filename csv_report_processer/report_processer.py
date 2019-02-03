@@ -8,6 +8,7 @@ class ReportProcesser(object):
     """
 
     """
+
     _columns = ('date', 'country_code', 'impressions', 'clicks')
 
     @classmethod
@@ -47,16 +48,18 @@ class ReportProcesser(object):
 
             df_valid = df[df['error'] != 1]
             df_error = df[df['error'] == 1]
+            df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
 
+            # if data frame has no errors or error_path is not specified, concatenate
+            # valid data frame with error data frame and save it as CSV file
             if df_error.empty or not error_path:
-                df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 pd.concat([df_valid, df_error]).to_csv(output_path, index=False, header=False,
                                                        columns=cls._columns, line_terminator='\n')
                 word = 'out' if df_error.empty else ''
                 LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
+            # if error_path is specified saves valid data frame and error data frame to CSV files
             elif error_path:
-                df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 df_valid.to_csv(output_path, index=False, header=False,
                                 columns=cls._columns, line_terminator='\n')
                 df_error.to_csv(error_path, index=False, header=False,
@@ -85,7 +88,7 @@ class ReportProcesser(object):
             Two dimensional data frame including data, column names and indexes
         """
 
-        # Tries to open file as utf-8, if it fails, tries to open as utf-16
+        # Tries to open file as UTF-8, if it fails, tries to open as UTF-16
         try:
             df = pd.read_csv(input_path, names=columns, index_col=False,
                              keep_default_na=False)
@@ -100,21 +103,25 @@ class ReportProcesser(object):
         Data converting function.
 
         Tries to convert each cell to corresponding format. If it fails,
-        changes whole row 'error' flag to 1.
+        changes row 'error' flag to 1.
 
         :param df: pandas.DataFrame
         """
         df['country_code'] = df['country_code'].apply(cls._convert_state_to_country)
 
+        # adds 'error' column filled with 0 to data frame
         df['error'] = 0
 
+        # iterate over data frame's rows
         for row in df.itertuples():
+            # convert date
             try:
                 df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%Y-%m-%d')
             except ValueError:
                 LOGGER.error(f'Row {row.Index}: Following date could not be converted: {df.at[row.Index, "date"]}\n')
                 df.at[row.Index, 'error'] = 1
 
+            # convert clicks
             try:
                 df.at[row.Index, 'clicks'] = float(str(row.clicks).rstrip('%')) / 100
                 df.at[row.Index, 'clicks'] = round(df.at[row.Index, 'clicks'] * int(row.impressions))
@@ -140,6 +147,7 @@ class ReportProcesser(object):
 
         :param state_name: str
         :return: str
+            Three letter country code or 'XXX' for unknown states
         """
         try:
             state = pycountry.subdivisions.lookup(state_name)
