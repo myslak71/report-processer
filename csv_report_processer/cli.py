@@ -8,7 +8,7 @@ def get_parser():
     required = parser.add_argument_group('required arguments')
     required.add_argument('-i', '--input', help='Input CSV file path', required=True)
     required.add_argument('-o', '--output', help='Output CSV file path', required=True)
-    parser.add_argument('-e', '--errors', help='Output CSV file with corrupted rows')
+    parser.add_argument('-e', '--error', help='Output CSV file with corrupted rows')
     return parser
 
 
