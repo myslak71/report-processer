@@ -33,12 +33,12 @@ converts the data and save to CSV, formatted as follows:
 If ERROR_PATH is specified, corrupted rows are excluded from the OUTPUT_PATH file and saved
 as CSV file.
 
-If ERROR_PATH in not specified, corrupted rows are listed at the end of OUTPUT_PATH file. 
+If ERROR_PATH is not specified, corrupted rows are listed at the end of the OUTPUT_PATH file. 
 ### Installation
 ```
 git clone https://github.com/myslak71/csv_report_processer.git
 ```
-In project directory:
+In the project directory:
 ```
 pip install -e .
 ```
@@ -55,3 +55,5 @@ usage: csv-report-processer [-h] -i INPUT_PATH -o OUTPUT_PATH [-e ERROR_PATH]
 |-o, --output|REQUIRED |Path to output CSV file|
 |-e, --error|OPTIONAL |Path to output CSV file with corrupted rows|
 |-h, --help|OPTIONAL|Help|
+
+If installing the package is not desired, example.py from example dir may be run.
