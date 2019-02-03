@@ -5,7 +5,7 @@ CSV Report Processer
 
 
 
-###Descriptionn
+### Descriptionn
 Package reads from CSV file, with rows formatted as follows:
 ```
 mm/dd/yyy,state_name,number_of_impressions,CTR%
@@ -18,7 +18,6 @@ and converts according to the table:
 |state_name |three letter country code or 'XXX' if state_name does not exist in ISO 3166-2|
 |number_of_impressions|casted to int|
 |CTR%| number of clicks based on CTR% and number of impressions
-<<<<<<< HEAD
 
 In addition rows are aggregated and sorted lexicographically by date followed by the country code
 #### Example
@@ -37,8 +36,6 @@ In addition rows are aggregated and sorted lexicographically by date followed by
 |01/24/2019,Unknown,586,0.86%|
 |01/24/2019, 234 ,1082,0.68%|
 
-
-```
 
 If ERROR_PATH is specified, corrupted rows are excluded from the OUTPUT_PATH file and saved
 as CSV file.
