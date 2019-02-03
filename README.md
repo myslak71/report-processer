@@ -40,7 +40,9 @@ In addition rows are aggregated and sorted lexicographically by date followed by
 If ERROR_PATH is specified, corrupted rows are excluded from the OUTPUT_PATH file and saved
 as CSV file.
 
-If ERROR_PATH is not specified, corrupted rows are listed at the end of the OUTPUT_PATH file. 
+If ERROR_PATH is not specified, corrupted rows are listed at the end of the OUTPUT_PATH file.
+
+All program logs are stored in report_processer.log.
 ### Installation
 ```
 git clone https://github.com/myslak71/csv_report_processer.git
