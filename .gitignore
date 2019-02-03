@@ -2,3 +2,4 @@
 venv/
 /coverage.data
 /coverage/
+*.log

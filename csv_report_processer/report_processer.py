@@ -18,17 +18,18 @@ class ReportProcesser(object):
         Report processing function.
 
         For given .csv file creates output .csv file and optional error .csv file.
-        In case of critical errors sends error message to output
+        In case of critical errors, sends error message to output
 
         :param input_path: str
-
+            path to input .csv file (supported file encoding: UTF-8, UTF-16)
         :param output_path: str
+            path to output .csv file
         :param error_path: str, optional
         """
         try:
             df = ReportProcesser._open_report(input_path, cls._columns)
         except UnicodeError:
-            LOGGER.error('Invalid file encoding - supported encodings: UTF-8, UTF-16\nCould not process the file.')
+            LOGGER.error('Invalid file encoding - supported encoding: UTF-8, UTF-16\nCould not process the file.')
         except FileNotFoundError:
             LOGGER.error(f'Input file {input_path} does not exist\nCould not process the file.')
         else:
