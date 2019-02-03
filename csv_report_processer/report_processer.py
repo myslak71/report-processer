@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 import pycountry
 
@@ -17,21 +15,20 @@ class ReportProcesser(object):
         """
         Report processing function.
 
-        If possible, converts input file data to specific format.
-        For given CSV file creates output CSV file and optional error CSV file.
+        If possible, converts input file data to specific format and saves to
+        CSV file. Optional creates including errors CSV file.
         In case of critical errors, sends error message to output and does not
         create CSV file.
+
         Input format: UTF-8 or UTF-16 CSV file
             mm/dd/yyyy,state_name,number_of_impressions,CTR%
-        Output file row format:
+        Output format: UTF-8 CSV file
             yyyy-mm-dd,country_code(str[3]),number_of_impressions,number_of_clicks
+        Optional error output format: UTF-8 CSV file
 
 
         :param input_path: str
-            Path to input .csv file
-            Supported file encoding: UTF-8, UTF-16
-            Input file format:
-                mm/dd/yyyy(str), state_name(str), number_of_impressions(int), CTR(float)%
+            Path to input CSV file
         :param output_path: str
             Path to output .csv file
 
@@ -77,7 +74,7 @@ class ReportProcesser(object):
         Csv file opening function.
 
         Opens .csv report.
-        First, tries to open file as UTF-8, then as UTF-16.
+        First, tries to open file as UTF-8, if it fails, tries to open as UTF-16.
         No other file encodings are supported.
 
         :param input_path: str
@@ -85,7 +82,7 @@ class ReportProcesser(object):
         :param columns: tuple or list of str:
             Contains column names to be used in Data Frame
         :return: pandas.DataFrame or pandas.TextParser
-            DataFrame including data, column names and indexes
+            Two dimensional data frame including data, column names and indexes
         """
 
         # Tries to open file as utf-8, if it fails, tries to open as utf-16
@@ -100,12 +97,12 @@ class ReportProcesser(object):
     @classmethod
     def _convert_data(cls, df):
         """
-        Data converting function
+        Data converting function.
 
-        Tries to convert
+        Tries to convert each cell to corresponding format. If it fails,
+        changes whole row 'error' flag to 1.
 
-        :param df:
-        :return:
+        :param df: pandas.DataFrame
         """
         df['country_code'] = df['country_code'].apply(cls._convert_state_to_country)
 
@@ -135,9 +132,14 @@ class ReportProcesser(object):
     @staticmethod
     def _convert_state_to_country(state_name):
         """
+        State to country convert function.
 
-        :param state_name:
-        :return:
+        Converts state_name to corresponding three letter country code
+        and returns it.
+        If state with given name does not exist, returns 'XXX'.
+
+        :param state_name: str
+        :return: str
         """
         try:
             state = pycountry.subdivisions.lookup(state_name)
