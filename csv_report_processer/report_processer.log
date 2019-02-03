@@ -124,3 +124,12 @@ Invalid data was excluded from the result and saved at /home/myslak/PycharmProje
 2019-02-02 23:15 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
 2019-02-02 23:15 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
 2019-02-02 23:16 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88sa3'
+2019-02-03 10:19 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88sa3'
+2019-02-03 10:19 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-03 10:19 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-03 10:19 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88sa3'
+2019-02-03 10:19 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-03 10:19 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
+2019-02-03 10:24 - report_processer.py - _convert_data - ERROR - Row 0: Following impression number could not be converted: '88sa3'
+2019-02-03 10:24 - report_processer.py - process_csv_report - INFO - File has been converted with errors and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/output_test.csv
+2019-02-03 10:24 - report_processer.py - process_csv_report - INFO - Invalid data has been excluded from the result and saved at /home/myslak/PycharmProjects/CSV-Report-Processing/csv_report_processer/errors.csv
