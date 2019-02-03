@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 import pycountry
 
@@ -10,6 +8,7 @@ class ReportProcesser(object):
     """
 
     """
+
     _columns = ('date', 'country_code', 'impressions', 'clicks')
 
     @classmethod
@@ -17,16 +16,23 @@ class ReportProcesser(object):
         """
         Report processing function.
 
-        For given .csv file creates output .csv file and optional error .csv file.
+        If possible, converts input file data to specific format and saves to
+        CSV file. Optional creates including errors CSV file.
         In case of critical errors, sends error message to output and does not
-        create .csv file.
+        create CSV file.
+
+        Input format: UTF-8 or UTF-16 CSV file
+            mm/dd/yyyy,state_name,number_of_impressions,CTR%
+        Output format: UTF-8 CSV file
+            yyyy-mm-dd,country_code(str[3]),number_of_impressions,number_of_clicks
+        Optional error output format: UTF-8 CSV file
+
 
         :param input_path: str
-            Path to input .csv file
-            Supported file encoding: UTF-8, UTF-16
-            Input file format: mm/dd/yyyy(str), state_name(str), number_of_impressions(int), CTR(str)
+            Path to input CSV file
         :param output_path: str
             Path to output .csv file
+
         :param error_path: str, default None
             Path to output error .csv file
             If specified, but no errors has occured, error .csv file is not created.
@@ -42,16 +48,18 @@ class ReportProcesser(object):
 
             df_valid = df[df['error'] != 1]
             df_error = df[df['error'] == 1]
+            df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
 
+            # if data frame has no errors or error_path is not specified, concatenate
+            # valid data frame with error data frame and save it as CSV file
             if df_error.empty or not error_path:
-                df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 pd.concat([df_valid, df_error]).to_csv(output_path, index=False, header=False,
                                                        columns=cls._columns, line_terminator='\n')
                 word = 'out' if df_error.empty else ''
                 LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
+            # if error_path is specified saves valid data frame and error data frame to CSV files
             elif error_path:
-                df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
                 df_valid.to_csv(output_path, index=False, header=False,
                                 columns=cls._columns, line_terminator='\n')
                 df_error.to_csv(error_path, index=False, header=False,
@@ -69,7 +77,7 @@ class ReportProcesser(object):
         Csv file opening function.
 
         Opens .csv report.
-        First, tries to open file as UTF-8, then as UTF-16.
+        First, tries to open file as UTF-8, if it fails, tries to open as UTF-16.
         No other file encodings are supported.
 
         :param input_path: str
@@ -77,10 +85,10 @@ class ReportProcesser(object):
         :param columns: tuple or list of str:
             Contains column names to be used in Data Frame
         :return: pandas.DataFrame or pandas.TextParser
-            DataFrame including data, column names and indexes
+            Two dimensional data frame including data, column names and indexes
         """
 
-        # Tries to open file as utf-8, if it fails, tries to open as utf-16
+        # Tries to open file as UTF-8, if it fails, tries to open as UTF-16
         try:
             df = pd.read_csv(input_path, names=columns, index_col=False,
                              keep_default_na=False)
@@ -92,24 +100,28 @@ class ReportProcesser(object):
     @classmethod
     def _convert_data(cls, df):
         """
-        Data converting function
+        Data converting function.
 
-        Tries to convert
+        Tries to convert each cell to corresponding format. If it fails,
+        changes row 'error' flag to 1.
 
-        :param df:
-        :return:
+        :param df: pandas.DataFrame
         """
         df['country_code'] = df['country_code'].apply(cls._convert_state_to_country)
 
+        # adds 'error' column filled with 0 to data frame
         df['error'] = 0
 
+        # iterate over data frame's rows
         for row in df.itertuples():
+            # convert date
             try:
                 df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%Y-%m-%d')
             except ValueError:
                 LOGGER.error(f'Row {row.Index}: Following date could not be converted: {df.at[row.Index, "date"]}\n')
                 df.at[row.Index, 'error'] = 1
 
+            # convert clicks
             try:
                 df.at[row.Index, 'clicks'] = float(str(row.clicks).rstrip('%')) / 100
                 df.at[row.Index, 'clicks'] = round(df.at[row.Index, 'clicks'] * int(row.impressions))
@@ -127,9 +139,15 @@ class ReportProcesser(object):
     @staticmethod
     def _convert_state_to_country(state_name):
         """
+        State to country convert function.
 
-        :param state_name:
-        :return:
+        Converts state_name to corresponding three letter country code
+        and returns it.
+        If state with given name does not exist, returns 'XXX'.
+
+        :param state_name: str
+        :return: str
+            Three letter country code or 'XXX' for unknown states
         """
         try:
             state = pycountry.subdivisions.lookup(state_name)
