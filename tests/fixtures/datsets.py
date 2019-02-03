@@ -63,7 +63,6 @@ INVALID_CTR_INPUT = """01/21/2019,Mandiana,883,0.3asd8%
                 01/24/2019,Unknown,586,0.86%
                 01/24/2019, 🐱 ,1082,0.68%"""
 
-
 INVALID_IMPRESSIONS_OUTPUT = """2019-01-21,AFG,919,6
 2019-01-21,GIN,76,1
 2019-01-22,CZE,139,1
@@ -109,3 +108,6 @@ for key, raw_input in INPUT_DFS.items():
     INPUT_DFS[key] = pd.read_csv(io.StringIO(raw_input), index_col=False,
                                  names=('date', 'country_code', 'impressions', 'clicks'),
                                  keep_default_na=False)
+
+__all__ = ['VALID_OUTPUT', 'INPUT_DFS', 'INVALID_DATA_OUTPUT', 'INVALID_IMPRESSIONS_OUTPUT', 'INVALID_DATE_ERROR',
+           'INVALID_IMPRESSIONS_ERROR', 'INVALID_CTR_ERROR', 'INVALID_CTR_OUTPUT']
