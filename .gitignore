@@ -3,3 +3,4 @@ venv/
 /coverage.data
 /coverage/
 *.log
+csv_report_processer.egg-info/

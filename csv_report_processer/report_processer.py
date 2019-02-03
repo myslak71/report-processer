@@ -28,7 +28,7 @@ class ReportProcesser(object):
             Path to output .csv file
         :param error_path: str, default None
             Path to output error .csv file
-            If specified, but no errors occurs, file is not created
+            If specified, but no errors has occured, file is not created.
         """
         try:
             df = ReportProcesser._open_report(input_path, cls._columns)
@@ -65,8 +65,13 @@ class ReportProcesser(object):
     @staticmethod
     def _open_report(input_path, columns):
         """
+        Csv file opening function.
+        Opens .csv report.
+        Supported file encoding: UTF-8, UTF-16
 
-        :param input_path:
+
+        :param input_path: str
+            Path to input .csv file
         :param columns:
         :return:
         """
