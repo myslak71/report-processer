@@ -39,5 +39,6 @@ def main():
     processer = ReportProcesser()
     processer.process_csv_report(parser.input, parser.output, parser.errors)
 
+
 if __name__ == '__main__':
     main()

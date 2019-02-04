@@ -12,6 +12,7 @@ class TestReportProcesser(unittest.TestCase):
     def setUp(self):
         self.valid_file = io.StringIO()
         self.error_file = io.StringIO()
+        self.report_processer = ReportProcesser()
 
     @data((INPUT_DFS['VALID_INPUT'], VALID_OUTPUT),
           (INPUT_DFS['INVALID_DATE_INPUT'], INVALID_DATE_OUTPUT),
@@ -22,7 +23,7 @@ class TestReportProcesser(unittest.TestCase):
     def test_proccess_csv_report_valid_output(self, input_df, expected_output, mocked_read_csv):
         model_df = input_df.copy()
         mocked_read_csv.return_value = model_df
-        ReportProcesser.process_csv_report('/filepath/file.csv', self.valid_file)
+        self.report_processer.process_csv_report('/filepath/file.csv', self.valid_file)
         self.valid_file.seek(0)
         self.assertEqual(self.valid_file.read().rstrip(), expected_output)
 
@@ -34,7 +35,7 @@ class TestReportProcesser(unittest.TestCase):
     def test_proccess_csv_report_error_output(self, input_df, expected_output, mocked_read_csv):
         model_df = input_df.copy()
         mocked_read_csv.return_value = model_df
-        ReportProcesser.process_csv_report('input is mocked', self.valid_file, self.error_file)
+        self.report_processer.process_csv_report('input is mocked', self.valid_file, self.error_file)
         self.error_file.seek(0)
         self.assertEqual(self.error_file.read().rstrip(), expected_output)
 
