@@ -1,11 +1,11 @@
 CSV Report Processer
 ==================== 
-[![Build Status](https://travis-ci.org/myslak71/csv_report_processer.svg?branch=master)](https://travis-ci.org/myslak71/csv_report_processer)
-[![Coverage Status](https://coveralls.io/repos/github/myslak71/csv_report_processer/badge.svg?branch=master)](https://coveralls.io/github/myslak71/csv_report_processer?branch=master)
+[![Build Status](https://travis-ci.org/myslak71/crp.svg?branch=master)](https://travis-ci.org/myslak71/crp)
+[![Coverage Status](https://coveralls.io/repos/github/myslak71/crp/badge.svg?branch=master)](https://coveralls.io/github/myslak71/csv_report_processer?branch=master)
 
 
 
-### Descriptionn
+### Description
 Package reads from CSV file, with rows formatted as follows:
 ```
 mm/dd/yyy,state_name,number_of_impressions,CTR%
@@ -44,15 +44,20 @@ If ERROR_PATH is not specified, corrupted rows are not considered critical and a
 file with appropriate error message.
 
 
-All program logs are stored in report_processer.log.
+All program logs are stored in report_processer.log file, which is created in program run directory.
 ### Installation
 ```
-git clone https://github.com/myslak71/csv_report_processer.git
+git clone git+https://github.com/myslak71/csv_report_processer.git
 ```
-In the project directory:
 ```
-pip install -e .
+
 ```
+
+Installing the package for CLI purposes
+```
+pip install git+https://github.com/myslak71/csv_report_processer.git
+```
+
 
 ### Usage
 ```

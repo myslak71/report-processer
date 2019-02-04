@@ -46,17 +46,15 @@ class ReportProcesser(object):
         else:
             ReportProcesser._convert_data(df)
 
-            df_valid = df[df['error'] != 1]
             df_error = df[df['error'] == 1]
-            df_valid = df_valid.groupby(['date', 'country_code'], as_index=False).agg(cls._aggregate_rows)
+            df_valid = df[df['error'] != 1].groupby(['date', 'country_code'], as_index=False)\
+                                           .agg(cls._aggregate_rows)
 
             # concatenate valid data frame with error data frame and save it as CSV file
             if df_error.empty or not error_path:
-                pd.concat([df_valid, df_error]).sort_values(by=['date', 'country_code']).to_csv(output_path,
-                                                                                                index=False,
-                                                                                                header=False,
-                                                                                                columns=cls._columns,
-                                                                                                line_terminator='\n')
+                pd.concat([df_valid, df_error]).sort_values(by=['date', 'country_code'])\
+                                               .to_csv(output_path, index=False, header=False,
+                                                       columns=cls._columns, line_terminator='\n')
                 word = 'out' if df_error.empty else ''
                 LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
