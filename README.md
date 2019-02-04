@@ -19,7 +19,7 @@ and converts according to the table:
 |number_of_impressions|casted to int|
 |CTR%| number of clicks based on CTR% and number of impressions
 
-In addition rows are aggregated and sorted lexicographically by date followed by the country code
+In addition rows are aggregated and sorted lexicographically by date followed by the country code.
 #### Example
 |INPUT|OUTPUT|
 |---|---|
