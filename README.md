@@ -1,7 +1,7 @@
 CSV Report Processer
 ==================== 
 [![Build Status](https://travis-ci.org/myslak71/crp.svg?branch=master)](https://travis-ci.org/myslak71/crp)
-[![Coverage Status](https://coveralls.io/repos/github/myslak71/crp/badge.svg?branch=master)](https://coveralls.io/github/myslak71/csv_report_processer?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/myslak71/crp/badge.svg?branch=master)](https://coveralls.io/github/myslak71/crp?branch=master)
 
 
 
