@@ -44,15 +44,20 @@ If ERROR_PATH is not specified, corrupted rows are not considered critical and a
 file with appropriate error message.
 
 
-All program logs are stored in report_processer.log.
+All program logs are stored in report_processer.log file, which is created in program run directory.
 ### Installation
 ```
-git clone https://github.com/myslak71/csv_report_processer.git
+git clone git+https://github.com/myslak71/csv_report_processer.git
 ```
-In the project directory:
 ```
-pip install -e .
+
 ```
+
+Installing the package for CLI purposes
+```
+pip install git+https://github.com/myslak71/csv_report_processer.git
+```
+
 
 ### Usage
 ```
