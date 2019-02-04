@@ -61,7 +61,7 @@ pip install git+https://github.com/myslak71/csv_report_processer.git
 
 ### Usage
 ```
-usage: csv-report-processer [-h] -i INPUT_PATH -o OUTPUT_PATH [-e ERROR_PATH]
+$ csv-report-processer [-h] -i INPUT_PATH -o OUTPUT_PATH [-e ERROR_PATH]
 ```
 
 

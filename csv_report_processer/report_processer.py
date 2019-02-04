@@ -6,15 +6,19 @@ from csv_report_processer.config import LOGGER
 
 class ReportProcesser(object):
     """
+    Report processer class
 
+    Has one class attribute: _columns which contains column names to
+    be used in pandas.DataFrame
     """
-
     _columns = ('date', 'country_code', 'impressions', 'clicks')
 
-    @classmethod
-    def process_csv_report(cls, input_path, output_path, error_path=None):
-        """
-        Report processing function.
+    def __init__(self):
+        """Initialization of object's DataFrame"""
+        self.df = pd.DataFrame()
+
+    def process_csv_report(self, input_path, output_path, error_path=None):
+        """Report processing function.
 
         If possible, converts input file data to specific format and saves to
         CSV file. Optional creates including errors CSV file.
@@ -35,43 +39,50 @@ class ReportProcesser(object):
 
         :param error_path: str, default None
             Path to output error .csv file
-            If specified, but no errors has occured, error .csv file is not created.
+            If specified, but no errors has occurred, error .csv file is not created.
         """
         try:
-            df = ReportProcesser._open_report(input_path, cls._columns)
+            self._open_report(input_path)
         except UnicodeError:
             LOGGER.error('Invalid file encoding - supported encoding: UTF-8, UTF-16\nCould not process the file.')
         except FileNotFoundError:
             LOGGER.error(f'Input file {input_path} does not exist\nCould not process the file.')
         else:
-            ReportProcesser._convert_data(df)
+            self._convert_data()
 
-            df_error = df[df['error'] == 1]
-            df_valid = df[df['error'] != 1].groupby(['date', 'country_code'], as_index=False)\
-                                           .agg(cls._aggregate_rows)
+            df_error = self.df[self.df['error'] == 1]
+            df_valid = self.df[self.df['error'] != 1].groupby(['date', 'country_code'], as_index=False) \
+                                                     .agg(self._aggregate_function)
 
             # concatenate valid data frame with error data frame and save it as CSV file
             if df_error.empty or not error_path:
-                pd.concat([df_valid, df_error]).sort_values(by=['date', 'country_code'])\
+                pd.concat([df_valid, df_error]).sort_values(by=['date', 'country_code']) \
                                                .to_csv(output_path, index=False, header=False,
-                                                       columns=cls._columns, line_terminator='\n')
+                                                       columns=self._columns, line_terminator='\n')
                 word = 'out' if df_error.empty else ''
                 LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
             elif error_path:
                 df_valid.to_csv(output_path, index=False, header=False,
-                                columns=cls._columns, line_terminator='\n')
+                                columns=self._columns, line_terminator='\n')
                 df_error.to_csv(error_path, index=False, header=False,
-                                columns=cls._columns, line_terminator='\n')
+                                columns=self._columns, line_terminator='\n')
                 LOGGER.info(f'File has been converted with errors and saved at {output_path}')
                 LOGGER.info(f'Invalid data has been excluded from the result and saved at {error_path}')
 
     @staticmethod
-    def _aggregate_rows(row):
-        return row.astype(int).sum()
+    def _aggregate_function(cell):
+        """
+        Function to use for aggregating the data
 
-    @staticmethod
-    def _open_report(input_path, columns):
+        :param cell: pandas.Series
+            Data cell to sum up
+        :return:
+            Cell value
+        """
+        return cell.astype(int).sum()
+
+    def _open_report(self, input_path):
         """
         Csv file opening function.
 
@@ -81,46 +92,42 @@ class ReportProcesser(object):
 
         :param input_path: str
             Path to input .csv file
-        :param columns: tuple or list of str:
-            Contains column names to be used in Data Frame
         :return: pandas.DataFrame or pandas.TextParser
             Two dimensional data frame including data, column names and indexes
         """
 
         try:
-            df = pd.read_csv(input_path, names=columns, index_col=False,
-                             keep_default_na=False)
+            self.df = pd.read_csv(input_path, names=self._columns, index_col=False,
+                                  keep_default_na=False)
         except UnicodeDecodeError:
-            df = pd.read_csv(input_path, names=columns, index_col=False,
-                             keep_default_na=False, encoding='utf-16')
-        return df
+            self.df = pd.read_csv(input_path, names=self._columns, index_col=False,
+                                  keep_default_na=False, encoding='utf-16')
 
-    @classmethod
-    def _convert_data(cls, df):
+    def _convert_data(self):
         """
         Data converting function.
 
         Tries to convert each cell to corresponding format. If it fails,
         changes row 'error' flag to 1.
 
-        :param df: pandas.DataFrame
         """
-        df['country_code'] = df['country_code'].apply(cls._convert_state_to_country)
+        self.df['country_code'] = self.df['country_code'].apply(self._convert_state_to_country)
 
-        df['error'] = 0
+        self.df['error'] = 0
 
-        for row in df.itertuples():
+        for row in self.df.itertuples():
             # convert date
             try:
-                df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%Y-%m-%d')
+                self.df.at[row.Index, 'date'] = pd.to_datetime(row.date).strftime('%Y-%m-%d')
             except ValueError:
-                LOGGER.error(f'Row {row.Index}: Following date could not be converted: {df.at[row.Index, "date"]}\n')
-                df.at[row.Index, 'error'] = 1
+                LOGGER.error(
+                    f'Row {row.Index}: Following date could not be converted: {self.df.at[row.Index, "date"]}\n')
+                self.df.at[row.Index, 'error'] = 1
 
             # convert clicks
             try:
-                df.at[row.Index, 'clicks'] = float(str(row.clicks).rstrip('%')) / 100
-                df.at[row.Index, 'clicks'] = round(df.at[row.Index, 'clicks'] * int(row.impressions))
+                self.df.at[row.Index, 'clicks'] = float(str(row.clicks).rstrip('%')) / 100
+                self.df.at[row.Index, 'clicks'] = round(self.df.at[row.Index, 'clicks'] * int(row.impressions))
             except Exception as e:
                 if str(e).startswith('invalid literal for int() with base 10: '):
                     error_message = str(e).replace('invalid literal for int() with base 10: ',
@@ -129,7 +136,7 @@ class ReportProcesser(object):
                 else:
                     error_message = str(e).replace('could not convert string to float: ',
                                                    f'Row {row.Index}: Following CTR could not be converted: ')
-                df.at[row.Index, 'error'] = 1
+                self.df.at[row.Index, 'error'] = 1
                 LOGGER.error(error_message)
 
     @staticmethod
