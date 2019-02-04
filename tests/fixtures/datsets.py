@@ -104,6 +104,16 @@ INPUT_DFS = {
     'INVALID_CTR_INPUT': INVALID_CTR_INPUT,
 }
 
+INVALID_DATE_OUTPUT_NO_ERROR_PATH = """0sad1/21/2019,GIN,883,3
+2019-01-21,AFG,919,6
+2019-01-21,GIN,76,1
+2019-01-22,CZE,139,1
+2019-01-22,GIN,1251,12
+2019-01-23,GIN,593,2
+2019-01-23,XXX,777,2
+2019-01-24,CZE,620,1
+2019-01-24,XXX,1668,12"""
+
 for key, raw_input in INPUT_DFS.items():
     INPUT_DFS[key] = pd.read_csv(io.StringIO(raw_input), index_col=False,
                                  names=('date', 'country_code', 'impressions', 'clicks'),
