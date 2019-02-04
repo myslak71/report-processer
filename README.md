@@ -1,11 +1,11 @@
 CSV Report Processer
 ==================== 
-[![Build Status](https://travis-ci.org/myslak71/csv_report_processer.svg?branch=master)](https://travis-ci.org/myslak71/csv_report_processer)
-[![Coverage Status](https://coveralls.io/repos/github/myslak71/csv_report_processer/badge.svg?branch=master)](https://coveralls.io/github/myslak71/csv_report_processer?branch=master)
+[![Build Status](https://travis-ci.org/myslak71/crp.svg?branch=master)](https://travis-ci.org/myslak71/crp)
+[![Coverage Status](https://coveralls.io/repos/github/myslak71/crp/badge.svg?branch=master)](https://coveralls.io/github/myslak71/csv_report_processer?branch=master)
 
 
 
-### Descriptionn
+### Description
 Package reads from CSV file, with rows formatted as follows:
 ```
 mm/dd/yyy,state_name,number_of_impressions,CTR%
