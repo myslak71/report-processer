@@ -14,7 +14,7 @@ class TestReportProcesser(unittest.TestCase):
         self.error_file = io.StringIO()
 
     @data((INPUT_DFS['VALID_INPUT'], VALID_OUTPUT),
-          (INPUT_DFS['INVALID_DATE_INPUT'], INVALID_DATA_OUTPUT),
+          (INPUT_DFS['INVALID_DATE_INPUT'], INVALID_DATE_OUTPUT),
           (INPUT_DFS['INVALID_IMPRESSIONS_INPUT'], INVALID_IMPRESSIONS_OUTPUT),
           (INPUT_DFS['INVALID_CTR_INPUT'], INVALID_CTR_OUTPUT))
     @unpack
