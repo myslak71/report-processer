@@ -49,6 +49,9 @@ All program logs are stored in report_processer.log file, which is created in pr
 ```
 git clone git+https://github.com/myslak71/csv_report_processer.git
 ```
+```
+pip install requirements.txt
+```
 
 Installing the package for CLI purposes
 ```
