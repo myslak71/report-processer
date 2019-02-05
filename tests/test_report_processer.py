@@ -40,12 +40,17 @@ class TestReportProcesser(unittest.TestCase):
         self.assertEqual(self.error_file.read().rstrip(), expected_output)
 
     @data((UnicodeError,),
-          (FileNotFoundError,),
-          )
+          (FileNotFoundError,))
     @unpack
     @patch('csv_report_processer.report_processer.pd.read_csv')
     def test_proccess_csv_no_file(self, error, mocked_read_csv):
         mocked_read_csv.side_effect = error
+        result = self.report_processer.process_csv_report('/filepath/file.csv', self.valid_file, self.error_file)
+        self.assertIsNone(result)
+
+    @patch('csv_report_processer.report_processer.pd.read_csv')
+    def test_process_csv_unicode_decode_error(self,mocked_read_csv):
+        mocked_read_csv.side_effect = UnicodeDecodeError('codec', b'\x00\x00', 1, 2, 'Fake exception')
         result = self.report_processer.process_csv_report('/filepath/file.csv', self.valid_file, self.error_file)
         self.assertIsNone(result)
 

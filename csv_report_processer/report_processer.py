@@ -62,7 +62,7 @@ class ReportProcesser(object):
                 word = 'out' if df_error.empty else ''
                 LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
-            elif error_path:
+            else:
                 df_valid.to_csv(output_path, index=False, header=False,
                                 columns=self._columns, line_terminator='\n')
                 df_error.to_csv(error_path, index=False, header=False,
