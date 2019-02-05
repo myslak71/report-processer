@@ -3,6 +3,7 @@ import unittest
 
 from mock import patch
 from ddt import ddt, data, unpack
+
 from csv_report_processer.report_processer import ReportProcesser
 from tests.fixtures.datsets import *
 
