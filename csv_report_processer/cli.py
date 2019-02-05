@@ -37,8 +37,4 @@ def get_parser():
 def main():
     parser = get_parser().parse_args()
     processer = ReportProcesser()
-    processer.process_csv_report(parser.input, parser.output, parser.errors)
-
-
-if __name__ == '__main__':
-    main()
+    processer.process_csv_report(parser.input, parser.output, error=parser.errors)
