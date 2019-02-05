@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 DIR_PATH = os.path.dirname(
     os.path.abspath(__file__))
 
-with open(os.path.join(DIR_PATH, 'README.md')) as file:
+with open(os.path.join(DIR_PATH, 'README.md'), encoding='utf-8') as file:
     long_description = file.read()
 
 install_requires = [line.rstrip('\n') for line in open(
@@ -13,7 +13,7 @@ install_requires = [line.rstrip('\n') for line in open(
 
 setup(
     name='csv_report_processer',
-    version='0.1.0',
+    version='1.0.0',
     packages=find_packages(exclude=('tests', 'example')),
     author='Kornel Szurek',
     author_email='kornel.szurek@protonmail.com',
