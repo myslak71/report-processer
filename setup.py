@@ -20,8 +20,10 @@ setup(
     description='CSV report processor for Clearcode',
     long_description=long_description,
     install_requires=install_requires,
+    python_requires=">=3.7",
     include_package_data=True,
     entry_points={
         'console_scripts': ['csv-report-processer=csv_report_processer.cli:main'],
     }
+
 )

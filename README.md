@@ -2,6 +2,7 @@ CSV Report Processer
 ==================== 
 [![Build Status](https://travis-ci.org/myslak71/report_processer.svg?branch=master)](https://travis-ci.org/myslak71/report_processer)
 [![Coverage Status](https://coveralls.io/repos/github/myslak71/report_processer/badge.svg?branch=master)](https://coveralls.io/github/myslak71/report_processer?branch=master)
+![image](https://img.shields.io/badge/python-3.7-blue.svg)
 
 
 
@@ -48,6 +49,9 @@ All program logs are stored in report_processer.log file, which is created in pr
 ### Installation
 ```
 git clone git+https://github.com/myslak71/csv_report_processer.git
+```
+```
+pip install requirements.txt
 ```
 
 Installing the package for CLI purposes
