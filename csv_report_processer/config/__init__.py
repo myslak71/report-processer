@@ -1,1 +1,1 @@
-from .config import LOGGER
+from csv_report_processer.config.config import LOGGER

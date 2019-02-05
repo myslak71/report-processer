@@ -3,4 +3,5 @@ coverage==4.5.2
 coveralls==1.5.1
 ddt==1.2.0
 mock==2.0.0
+flake8==3.7.5
 
