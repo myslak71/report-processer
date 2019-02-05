@@ -28,7 +28,7 @@ class ReportProcesser(object):
         Input format: UTF-8 or UTF-16 CSV file
             mm/dd/yyyy,state_name,number_of_impressions,CTR%
         Output format: UTF-8 CSV file
-            yyyy-mm-dd,country_code(str[3]),number_of_impressions,number_of_clicks
+            yyyy-mm-dd,country_code(3 letter),number_of_impressions,number_of_clicks
         Optional error output format: UTF-8 CSV file
 
 
@@ -98,10 +98,10 @@ class ReportProcesser(object):
 
         try:
             self.df = pd.read_csv(input_path, names=self._columns, index_col=False,
-                                  keep_default_na=False)
+                                  keep_default_na=False, sep=',')
         except UnicodeDecodeError:
             self.df = pd.read_csv(input_path, names=self._columns, index_col=False,
-                                  keep_default_na=False, encoding='utf-16')
+                                  keep_default_na=False, sep=',', encoding='utf-16')
 
     def _convert_data(self):
         """

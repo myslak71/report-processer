@@ -22,7 +22,7 @@ as CSV file.
 If ERROR_PATH is not specified, corrupted rows are not considered critical and are included in the OUTPUT_PATH
 file with appropriate error message.
 
-All program logs are stored in report_processer.log file, which is created in program run directory."""
+All program logs are stored in the report_processer.log file, which is created in program run directory."""
 
 
 def get_parser():
