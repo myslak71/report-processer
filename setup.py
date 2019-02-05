@@ -13,7 +13,7 @@ install_requires = [line.rstrip('\n') for line in open(
 
 setup(
     name='csv_report_processer',
-    version='0.1.0',
+    version='1.0.0',
     packages=find_packages(exclude=('tests', 'example')),
     author='Kornel Szurek',
     author_email='kornel.szurek@protonmail.com',
