@@ -32,12 +32,12 @@ class ReportProcesser(object):
         Optional error output format: UTF-8 CSV file
 
 
-        :param input_path: str
+        :param input_path:
             Path to input CSV file
-        :param output_path: str
+        :param output_path:
             Path to output .csv file
 
-        :param error_path: str, default None
+        :param error_path: default None
             Path to output error .csv file
             If specified, but no errors has occurred, error .csv file is not created.
         """
@@ -75,7 +75,7 @@ class ReportProcesser(object):
         """
         Function to use for aggregating the data
 
-        :param cell: pandas.Series
+        :param cell:
             Data cell to sum up
         :return:
             Cell value
@@ -90,9 +90,9 @@ class ReportProcesser(object):
         First, tries to open file as UTF-8, if it fails, tries to open as UTF-16.
         No other file encodings are supported.
 
-        :param input_path: str
+        :param input_path:
             Path to input .csv file
-        :return: pandas.DataFrame or pandas.TextParser
+        :return:
             Two dimensional data frame including data, column names and indexes
         """
 
@@ -124,8 +124,9 @@ class ReportProcesser(object):
                     f'Row {row.Index}: Following date could not be converted: {self.df.at[row.Index, "date"]}\n')
                 self.df.at[row.Index, 'error'] = 1
 
-            # convert clicks
+            # convert impressions and clicks
             try:
+                self.df.at[row.Index, 'impressions'] = int(row.impressions)
                 self.df.at[row.Index, 'clicks'] = float(str(row.clicks).rstrip('%')) / 100
                 self.df.at[row.Index, 'clicks'] = round(self.df.at[row.Index, 'clicks'] * int(row.impressions))
             except Exception as e:
@@ -148,8 +149,9 @@ class ReportProcesser(object):
         and returns it.
         If state with given name does not exist, returns 'XXX'.
 
-        :param state_name: str
-        :return: str
+        :param state_name:
+            State name to convert
+        :return:
             Three letter country code or 'XXX' for unknown states
         """
         try:

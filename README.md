@@ -6,11 +6,11 @@ CSV Report Processer
 
 
 ### Description
-Package reads from CSV file, with rows formatted as follows:
+Package reads data from CSV file, with rows formatted as follows:
 ```
 mm/dd/yyy,state_name,number_of_impressions,CTR%
 ```
-and converts according to the table:
+and converts it according to the table:
 
 | INPUT FORMAT  | OUTPUT FORMAT|
 |---|---|

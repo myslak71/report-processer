@@ -7,5 +7,5 @@ install:
   - pip install -r requirements-dev.txt
 script:
   - flake8 --exclude=./tests/* --exit-zero
-  - coverage run -m --source=. --branch unittest tests.test_report_processer
+  - coverage run -m --source=csv_report_processer --branch unittest
 after_success: coveralls
