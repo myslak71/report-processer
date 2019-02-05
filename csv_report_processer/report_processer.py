@@ -128,7 +128,7 @@ class ReportProcesser(object):
             try:
                 self.df.at[row.Index, 'impressions'] = int(row.impressions)
                 self.df.at[row.Index, 'clicks'] = float(str(row.clicks).rstrip('%')) / 100
-                self.df.at[row.Index, 'clicks'] = round(self.df.at[row.Index, 'clicks'] * row.impressions)
+                self.df.at[row.Index, 'clicks'] = round(self.df.at[row.Index, 'clicks'] * int(row.impressions))
             except Exception as e:
                 if str(e).startswith('invalid literal for int() with base 10: '):
                     error_message = str(e).replace('invalid literal for int() with base 10: ',
