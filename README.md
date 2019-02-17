@@ -45,7 +45,7 @@ If ERROR_PATH is not specified, corrupted rows are not considered critical and a
 file with appropriate error message.
 
 
-All program logs are stored in report_processer.log file, which is created in program run directory.
+All program logs are stored in report_processer.log file, which is created in the program run directory.
 ### Installation
 
 Installing the package for CLI purposes
