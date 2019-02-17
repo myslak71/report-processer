@@ -14,7 +14,7 @@ class ReportProcesser(object):
     _columns = ('date', 'country_code', 'impressions', 'clicks')
 
     def __init__(self):
-        """Initialization of object's DataFrame"""
+        """Initialization of the object's DataFrame"""
         self.df = pd.DataFrame()
 
     def process_csv_report(self, input_path, output_path, error_path=None):
