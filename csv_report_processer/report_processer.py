@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import pycountry
 
 from csv_report_processer.config import LOGGER
@@ -17,7 +18,7 @@ class ReportProcesser(object):
         """Initialization of the object's DataFrame"""
         self.df = pd.DataFrame()
 
-    def process_csv_report(self, input_path, output_path, error_path=None):
+    def process_csv_report(self, input_path: str, output_path: str, error_path: str = None):
         """Report processing function.
 
         If possible, converts input file data to specific format and saves to
@@ -57,8 +58,8 @@ class ReportProcesser(object):
             # concatenate valid data frame with error data frame and save it as CSV file
             if df_error.empty or not error_path:
                 pd.concat([df_valid, df_error]).sort_values(by=['date', 'country_code']) \
-                                               .to_csv(output_path, index=False, header=False,
-                                                       columns=self._columns, line_terminator='\n')
+                                            .to_csv(output_path, index=False, header=False,
+                                                    columns=self._columns, line_terminator='\n')
                 word = 'out' if df_error.empty else ''
                 LOGGER.info(f'File has been converted with{word} errors and saved at {output_path}')
 
@@ -71,9 +72,9 @@ class ReportProcesser(object):
                 LOGGER.info(f'Invalid data has been excluded from the result and saved at {error_path}')
 
     @staticmethod
-    def _aggregate_function(cell):
+    def _aggregate_function(cell: pd.Series) -> np.int64:
         """
-        Function to use for aggregating the data
+        Data aggregating function
 
         :param cell:
             Data cell to sum up
@@ -82,7 +83,7 @@ class ReportProcesser(object):
         """
         return cell.astype(int).sum()
 
-    def _open_report(self, input_path):
+    def _open_report(self, input_path: str):
         """
         Csv file opening function.
 
@@ -141,7 +142,7 @@ class ReportProcesser(object):
                 LOGGER.error(error_message)
 
     @staticmethod
-    def _convert_state_to_country(state_name):
+    def _convert_state_to_country(state_name: str) -> str:
         """
         State to country convert function.
 
