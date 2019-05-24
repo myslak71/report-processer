@@ -110,7 +110,6 @@ class ReportProcesser(object):
 
         Tries to convert each cell to corresponding format. If it fails,
         changes row 'error' flag to 1.
-
         """
         self.df['country_code'] = self.df['country_code'].apply(self._convert_state_to_country)
 
