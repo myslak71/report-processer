@@ -32,12 +32,10 @@ class ReportProcesser(object):
             yyyy-mm-dd,country_code(3 letter),number_of_impressions,number_of_clicks
         Optional error output format: UTF-8 CSV file
 
-
         :param input_path:
             Path to input CSV file
         :param output_path:
             Path to output .csv file
-
         :param error_path: default None
             Path to output error .csv file
             If specified, but no errors has occurred, error .csv file is not created.
