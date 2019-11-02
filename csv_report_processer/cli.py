@@ -26,7 +26,9 @@ All program logs are stored in the report_processer.log file, which is created i
 
 
 def get_parser():
-    parser = ArgumentParser(description=description, formatter_class=RawDescriptionHelpFormatter)
+    parser = ArgumentParser(
+        description=description, formatter_class=RawDescriptionHelpFormatter
+    )
     required = parser.add_argument_group('required arguments')
     required.add_argument('-i', '--input', help='Input CSV file path', required=True)
     required.add_argument('-o', '--output', help='Output CSV file path', required=True)
